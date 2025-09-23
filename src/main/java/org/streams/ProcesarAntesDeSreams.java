@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class procesarAntesDeSreams {
+public class ProcesarAntesDeSreams {
 
     public static void main(String[] args) {
 
