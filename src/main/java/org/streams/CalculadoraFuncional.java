@@ -57,6 +57,9 @@ public class CalculadoraFuncional {
                 System.out.println("Operacion '"+ instruccionArr[0] + "' no contemplada");
 
             }
+
+            sc.close();
+
         }
     }
 
