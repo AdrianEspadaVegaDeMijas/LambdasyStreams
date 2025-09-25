@@ -32,10 +32,18 @@ public class validarInput {
 
         }
 
+
         //valida que los operandos sean numeros
         try {
             Double.parseDouble(instruccionArr[1]);
             Double.parseDouble(instruccionArr[2]);
+
+            //Confirmamos que no se intente dividir por 0
+            if(instruccionArr[0].equals("/") || instruccionArr[0].equals("div") &&  instruccionArr[2].equals("0")) {
+                System.out.println("No se puede dividir por 0");
+                return false;
+            }
+
             return true; // Es un número válido
         } catch (NumberFormatException e) {
             System.out.println("Formato de parámetro incorrecto");
