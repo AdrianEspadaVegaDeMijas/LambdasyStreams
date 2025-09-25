@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class CalcFun {
+public class Calculadora1 {
 
     private static Map<String, Operacion> mapOperaciones = new HashMap<>();
 
