@@ -1,12 +1,17 @@
 package org.streams;
 
-import java.util.List;
+import java.util.Map;
 
 public class validarInput {
-    
-    public static boolean validar(String[] instruccionArr) {
 
-        List<String> operaciones = List.of("+", "add", "-", "sub", "*", "mul", "/", "div");
+    public static boolean validarStr(String[] instruccionArr, Map<String, OperacionStr> operaciones) {
+
+        return operaciones.containsKey(instruccionArr[0]);
+
+    }
+    
+    public static boolean validar(String[] instruccionArr, Map<String, Operacion> mapOperaciones) {
+
 
         //valida que la cantidad de parametros sea correcta
         if (instruccionArr.length != 3) {
@@ -17,7 +22,7 @@ public class validarInput {
         }
 
         //valida que la operacion este contemplada
-        if(operaciones.contains(instruccionArr[0]) == false) {
+        if(!mapOperaciones.containsKey(instruccionArr[0])) {
 
             System.out.println("Operacion '"+ instruccionArr[0] + "' no contemplada");
             return false;
@@ -25,7 +30,7 @@ public class validarInput {
         }
 
         //valida que los operandos no esten vacios
-        if(instruccionArr[1].isEmpty() == true || instruccionArr[2].isEmpty() == true) {
+        if(instruccionArr[1].isEmpty() || instruccionArr[2].isEmpty()) {
 
             System.out.println("Faltan operandos");
             return false;
@@ -39,7 +44,7 @@ public class validarInput {
             Double.parseDouble(instruccionArr[2]);
 
             //Confirmamos que no se intente dividir por 0
-            if(instruccionArr[0].equals("/") || instruccionArr[0].equals("div") &&  instruccionArr[2].equals("0")) {
+            if(instruccionArr[0].equals("/") || instruccionArr[0].equals("div") &&  Double.parseDouble(instruccionArr[2]) == 0) {
                 System.out.println("No se puede dividir por 0");
                 return false;
             }

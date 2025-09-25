@@ -1,6 +1,7 @@
 package org.streams;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -8,10 +9,14 @@ public class Calculadora1 {
 
     private static Map<String, Operacion> mapOperaciones = new HashMap<>();
 
+    private static Map<String, OperacionStr> mapOperacionesStr = new HashMap<>();
+
     
     public static void main(String [] args) {
 
-        Operacion suma= ((x, y) -> x + y);
+        //Operacines Numeros
+
+        Operacion suma = ((x, y) -> x + y);
         Operacion resta = ((x, y) -> x - y);
         Operacion mult = ((x, y) -> x * y);
         Operacion div = ((x, y) -> x / y);
@@ -28,6 +33,25 @@ public class Calculadora1 {
         mapOperaciones.put("/", div);
         mapOperaciones.put("div", div);
 
+        //operaciones Strings
+
+        OperacionStr upper = (s -> s.toUpperCase());
+        OperacionStr lower = (s -> s.toLowerCase());
+        //OperacionStr reverse = (s -> s.reverse());
+        OperacionStr length = (s -> String.valueOf(s.length()));
+        OperacionStr trim = (s -> s.trim());
+
+        mapOperacionesStr.put("upper", upper);
+        mapOperacionesStr.put("lower", lower);
+        //mapOperacionesStr.put("reverse", reverse);
+        mapOperacionesStr.put("length", length);
+        mapOperacionesStr.put("trim", trim);
+
+
+
+        
+
+
         Scanner sc = new Scanner(System.in);
         String input = sc.nextLine();
         boolean salir = false;
@@ -38,7 +62,11 @@ public class Calculadora1 {
             String[] instruccionArr = input.trim().split(" ");
 
             //Valido input y hago la operacion correspondiente.
-            if(validarInput.validar(instruccionArr)) {
+            if(validarInput.validarStr(instruccionArr, mapOperacionesStr)) {
+
+                OperacionStr.calcularStr(instruccionArr, mapOperacionesStr);
+
+            }else if(validarInput.validar(instruccionArr, mapOperaciones)) {
 
                 Operacion.calcular(instruccionArr, mapOperaciones);
 
