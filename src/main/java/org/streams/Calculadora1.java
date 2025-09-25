@@ -38,7 +38,7 @@ public class Calculadora1 {
             String[] instruccionArr = input.trim().split(" ");
 
             //Valido input y hago la operacion correspondiente.
-            if(validarInput.validar(instruccionArr) == true) {
+            if(validarInput.validar(instruccionArr)) {
 
                 Operacion.calcular(instruccionArr, mapOperaciones);
 
