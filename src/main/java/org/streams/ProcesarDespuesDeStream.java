@@ -3,7 +3,7 @@ package org.streams;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
-import java.util.function.Predicate;
+//import java.util.function.Predicate;
 
 
 public class ProcesarDespuesDeStream {
@@ -21,7 +21,7 @@ public class ProcesarDespuesDeStream {
             new Dish("prawns", false, 300, Dish.Type.FISH),
             new Dish("salmon", false, 450, Dish.Type.FISH) );
             
-        Predicate<Dish> dishBajaCaloria = x -> x.getCalories() < 300;
+        //Predicate<Dish> dishBajaCaloria = x -> x.getCalories() < 300;
 
         List<String> listcalories = menu.stream()
             .filter(d -> d.getCalories() < 400)//Despues de este metodo que sigue, solo hay plato con menos de 400 calorías
