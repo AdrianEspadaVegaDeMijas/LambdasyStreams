@@ -10,6 +10,10 @@ public interface OperacionStr {
 
     public static void calcularStr (String[] instruccionArr, Map<String, OperacionStr> mapOperacionesStr) {
         
+        if(instruccionArr[0].equals("trim")) {
+        
+        }
+
         System.out.println(mapOperacionesStr.get(instruccionArr[0]).transforma(instruccionArr[1]));
 
     }
