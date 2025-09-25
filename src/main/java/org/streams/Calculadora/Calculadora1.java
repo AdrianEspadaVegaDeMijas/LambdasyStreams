@@ -1,4 +1,4 @@
-package org.streams;
+package org.streams.Calculadora;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -45,10 +45,6 @@ public class Calculadora1 {
         //mapOperacionesStr.put("reverse", reverse);
         mapOperacionesStr.put("length", length);
         mapOperacionesStr.put("trim", trim);
-
-
-
-        
 
 
         Scanner sc = new Scanner(System.in);

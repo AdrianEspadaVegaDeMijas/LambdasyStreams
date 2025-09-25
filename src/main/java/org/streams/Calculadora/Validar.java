@@ -1,4 +1,4 @@
-package org.streams;
+package org.streams.Calculadora;
 
 import java.util.Map;
 
