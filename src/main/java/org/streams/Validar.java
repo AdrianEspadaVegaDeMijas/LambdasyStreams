@@ -2,7 +2,7 @@ package org.streams;
 
 import java.util.Map;
 
-public class validarInput {
+public class Validar {
 
     public static boolean validarStr(String[] instruccionArr, Map<String, OperacionStr> operaciones) {
 

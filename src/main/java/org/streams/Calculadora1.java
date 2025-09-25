@@ -62,11 +62,11 @@ public class Calculadora1 {
             String[] instruccionArr = input.trim().split(" ");
 
             //Valido input y hago la operacion correspondiente.
-            if(validarInput.validarStr(instruccionArr, mapOperacionesStr)) {
+            if(Validar.validarStr(instruccionArr, mapOperacionesStr)) {
 
                 OperacionStr.calcularStr(instruccionArr, mapOperacionesStr);
 
-            }else if(validarInput.validar(instruccionArr, mapOperaciones)) {
+            }else if(Validar.validar(instruccionArr, mapOperaciones)) {
 
                 Operacion.calcular(instruccionArr, mapOperaciones);
 

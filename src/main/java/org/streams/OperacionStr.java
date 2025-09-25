@@ -10,7 +10,6 @@ public interface OperacionStr {
 
     public static void calcularStr (String[] instruccionArr, Map<String, OperacionStr> mapOperacionesStr) {
         
-
         System.out.println(mapOperacionesStr.get(instruccionArr[0]).transforma(instruccionArr[1]));
 
     }
