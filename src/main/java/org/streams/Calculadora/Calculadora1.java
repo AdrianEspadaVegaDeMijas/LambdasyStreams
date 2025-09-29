@@ -36,13 +36,13 @@ public class Calculadora1 {
 
         OperacionStr upper = (s -> s.toUpperCase());
         OperacionStr lower = (s -> s.toLowerCase());
-        //OperacionStr reverse = (s -> s.reverse());
+        OperacionStr reverse = (s -> new StringBuilder(s).reverse().toString());
         OperacionStr length = (s -> String.valueOf(s.length()));
         OperacionStr trim = (s -> s.trim());
 
         mapOperacionesStr.put("upper", upper);
         mapOperacionesStr.put("lower", lower);
-        //mapOperacionesStr.put("reverse", reverse);
+        mapOperacionesStr.put("reverse", reverse);
         mapOperacionesStr.put("length", length);
         mapOperacionesStr.put("trim", trim);
 

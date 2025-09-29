@@ -6,7 +6,18 @@ public class Validar {
 
     public static boolean validarStr(String[] instruccionArr, Map<String, OperacionStr> operaciones) {
 
-        return operaciones.containsKey(instruccionArr[0]);
+
+        if(operaciones.containsKey(instruccionArr[0])) {
+            
+
+
+            return true;
+
+        } else {
+
+            System.out.println("Operacion '"+ instruccionArr[0] + "' no contemplada");
+            return false;
+        }
 
     }
     
