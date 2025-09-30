@@ -3,6 +3,7 @@ package org.streams.Calculadora;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.function.Predicate;
 
 public class Calculadora1 {
 
@@ -46,6 +47,12 @@ public class Calculadora1 {
         mapOperacionesStr.put("length", length);
         mapOperacionesStr.put("trim", trim);
 
+        //operacion Num
+
+
+
+
+
 
         Scanner sc = new Scanner(System.in);
         String input = sc.nextLine();
@@ -61,6 +68,39 @@ public class Calculadora1 {
 
                 OperacionStr.calcularStr(instruccionArr, mapOperacionesStr);
 
+            //Valida un solo numero
+            }else if(Validar.validarNum(instruccionArr)) {
+
+                Predicate<Integer> predicadoPar = (num) -> num % 2 == 0;
+                Predicate<Integer> predicadoMul5 = (num) -> num % 5 == 0;
+                Predicate<Integer> predicado10a100 = (num) -> num>10 && num<100;
+                Predicate<Integer> predicadoPrimo = num -> {
+                    if (num < 2) return false; // los números menores que 2 no son primos
+                    for (int i = 2; i <= Math.sqrt(num); i++) {
+                        if (num % i == 0) return false; // si es divisible, no es primo
+                    }
+                    return true; // si no se encontró divisor, es primo
+                };
+
+                OperacionNum.test(instruccionArr, predicadoPar);
+                OperacionNum.test(instruccionArr, predicadoMul5);
+                OperacionNum.test(instruccionArr, predicado10a100);
+                OperacionNum.test(instruccionArr, predicadoPrimo);
+
+                if(OperacionNum.test(instruccionArr, predicadoPar)) {
+                    System.out.println("Es par");
+                }
+                if(OperacionNum.test(instruccionArr, predicadoMul5)) {
+                    System.out.println("Es multiplo de 5");
+                }
+                if(OperacionNum.test(instruccionArr, predicado10a100)) {
+                    System.out.println("Esta entre 10 y 100");
+                }
+                if(OperacionNum.test(instruccionArr, predicadoPrimo)) {
+                    System.out.println("Es primo");
+                }
+
+            //Valida una operacion
             }else if(Validar.validar(instruccionArr, mapOperaciones)) {
 
                 Operacion.calcular(instruccionArr, mapOperaciones);

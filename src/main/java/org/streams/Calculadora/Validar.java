@@ -7,19 +7,38 @@ public class Validar {
     public static boolean validarStr(String[] instruccionArr, Map<String, OperacionStr> operaciones) {
 
 
-        if(operaciones.containsKey(instruccionArr[0])) {
-            
-
+        if(operaciones.containsKey(instruccionArr[0]) && instruccionArr[0] != "trim") {
 
             return true;
 
-        } else {
+        }else if(operaciones.containsKey(instruccionArr[0]) && instruccionArr[0] == "trim") {
 
-            System.out.println("Operacion '"+ instruccionArr[0] + "' no contemplada");
-            return false;
+            return true;
+
         }
 
+        return false;
+
     }
+
+    public static boolean validarNum(String[] instruccionArr) {
+
+        if(instruccionArr.length == 1) {
+
+            try {
+                Integer.parseInt(instruccionArr[0]);
+                return true; // es un número válido
+            } catch (NumberFormatException e) {
+                return false; // no es un número
+            } 
+
+        }
+
+        return false;
+
+    }
+
+    
     
     public static boolean validar(String[] instruccionArr, Map<String, Operacion> mapOperaciones) {
 

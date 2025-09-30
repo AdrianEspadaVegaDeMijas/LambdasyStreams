@@ -1,5 +1,7 @@
 package org.streams;
 
+import org.streams.Calculadora.Operacion;
+
 public class JugarConsola {
 
             
